@@ -1045,38 +1045,90 @@ select {
   color: var(--color-primary-light) !important;
 }
 
-.access__map {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+.access__area {
+  background: linear-gradient(135deg, rgba(139, 94, 60, 0.04), rgba(212, 160, 83, 0.08));
+  border: 1px solid rgba(139, 94, 60, 0.12);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
 }
 
-.access__map iframe {
-  width: 100%;
-  aspect-ratio: 4/3;
-  border: 0;
-  border-radius: var(--radius-lg);
-}
-
-.access__map-placeholder {
-  aspect-ratio: 4/3;
-  background: var(--color-gray-100);
-  border: 1px solid var(--color-gray-200);
-  border-radius: var(--radius-lg);
+.access__area-title {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: var(--color-gray-500);
+  gap: 0.5rem;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--spacing-lg);
 }
 
-.access__map-placeholder p {
+.access__area-icon {
+  color: var(--color-accent);
+  font-size: var(--font-size-sm);
+}
+
+.access__area-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.access__area-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  padding: 0.875rem 1rem;
+  text-align: center;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.access__area-card:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 4px 12px rgba(139, 94, 60, 0.12);
+  transform: translateY(-2px);
+}
+
+.access__area-card--main {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  border-color: transparent;
+  grid-column: 1 / -1;
+}
+
+.access__area-card--main .access__area-name {
+  color: var(--color-white);
+  font-size: var(--font-size-lg);
+}
+
+.access__area-card--main:hover {
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(139, 94, 60, 0.25);
+}
+
+.access__area-name {
+  font-weight: 600;
   font-size: var(--font-size-base);
-  font-weight: 500;
+  color: var(--color-text);
 }
 
-.access__map-placeholder small {
-  margin-top: 0.5rem;
+.access__area-badge {
+  display: inline-block;
+  background: var(--color-accent);
+  color: var(--color-white);
   font-size: var(--font-size-xs);
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.access__area-note {
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin-top: var(--spacing-sm);
 }
 
 /* ============================================
@@ -1438,6 +1490,10 @@ select {
   /* Access mobile */
   .access__content {
     grid-template-columns: 1fr;
+  }
+
+  .access__area-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   /* Contact mobile */
