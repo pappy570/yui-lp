@@ -462,33 +462,61 @@
           </div>
         </div>
         <div class="access__area">
-          <h3 class="access__area-title">
-            <span class="access__area-icon">&#9679;</span>
-            対応エリア
-          </h3>
-          <div class="access__area-grid">
-            <div class="access__area-card access__area-card--main">
-              <span class="access__area-name">小野市</span>
-              <span class="access__area-badge">拠点</span>
-            </div>
-            <div class="access__area-card">
-              <span class="access__area-name">三木市</span>
-            </div>
-            <div class="access__area-card">
-              <span class="access__area-name">加古川市</span>
-            </div>
-            <div class="access__area-card">
-              <span class="access__area-name">稲美町</span>
-            </div>
-            <div class="access__area-card">
-              <span class="access__area-name">加西市</span>
-            </div>
-            <div class="access__area-card">
-              <span class="access__area-name">加東市</span>
-            </div>
-            <div class="access__area-card">
-              <span class="access__area-name">西脇市</span>
-            </div>
+          <h3 class="access__area-title">対応エリア</h3>
+          <div class="access__area-map">
+            <svg viewBox="0 0 520 580" xmlns="http://www.w3.org/2000/svg">
+              <!-- 30分圏の円 -->
+              <circle cx="270" cy="300" r="210" fill="rgba(139,94,60,0.06)" stroke="var(--color-primary-light, #A0724E)" stroke-width="2" stroke-dasharray="8 4" />
+              <text x="270" y="108" text-anchor="middle" font-size="11" fill="#A0724E" font-weight="600" font-family="'Noto Sans JP', sans-serif">車で約30分圏内</text>
+
+              <!-- 境界線（点線） -->
+              <!-- 小野市 境界 -->
+              <path d="M200,230 Q230,220 260,225 Q310,220 340,240 Q360,270 350,310 Q340,350 310,370 Q280,385 250,380 Q220,375 200,355 Q180,330 185,295 Q185,260 200,230Z" fill="none" stroke="#aaa" stroke-width="1.5" stroke-dasharray="6 4" />
+              <!-- 西脇市 境界 -->
+              <path d="M240,60 Q280,50 340,55 Q390,65 400,100 Q405,140 385,170 Q350,195 310,200 Q270,200 250,190 Q225,175 220,145 Q215,110 240,60Z" fill="none" stroke="#aaa" stroke-width="1.5" stroke-dasharray="6 4" />
+              <!-- 加東市 境界 -->
+              <path d="M310,170 Q350,160 400,175 Q440,195 445,235 Q445,270 425,295 Q400,315 365,310 Q340,305 325,285 Q310,260 310,235 Q305,200 310,170Z" fill="none" stroke="#aaa" stroke-width="1.5" stroke-dasharray="6 4" />
+              <!-- 加西市 境界 -->
+              <path d="M60,195 Q100,175 145,180 Q185,190 200,220 Q210,255 200,290 Q185,320 155,335 Q120,340 90,325 Q60,305 50,270 Q45,235 60,195Z" fill="none" stroke="#aaa" stroke-width="1.5" stroke-dasharray="6 4" />
+              <!-- 三木市 境界 -->
+              <path d="M320,340 Q365,325 410,340 Q450,360 460,400 Q460,445 440,475 Q410,500 370,505 Q330,500 305,475 Q285,450 290,410 Q295,370 320,340Z" fill="none" stroke="#aaa" stroke-width="1.5" stroke-dasharray="6 4" />
+              <!-- 加古川市 境界 -->
+              <path d="M80,350 Q125,335 175,345 Q215,360 230,395 Q240,435 225,470 Q200,505 160,515 Q115,518 80,495 Q55,470 50,430 Q48,385 80,350Z" fill="none" stroke="#aaa" stroke-width="1.5" stroke-dasharray="6 4" />
+              <!-- 稲美町 境界 -->
+              <path d="M195,430 Q225,415 265,420 Q300,430 310,460 Q315,490 295,510 Q270,525 240,525 Q210,520 195,500 Q182,475 195,430Z" fill="none" stroke="#aaa" stroke-width="1.5" stroke-dasharray="6 4" />
+
+              <!-- 市町名ラベル（楕円＋テキスト） -->
+              <!-- 小野市（拠点） -->
+              <ellipse cx="270" cy="300" rx="52" ry="26" fill="#8B5E3C" opacity="0.9" />
+              <text x="270" y="306" text-anchor="middle" font-size="16" fill="#fff" font-weight="700" font-family="'Noto Sans JP', sans-serif">小野市</text>
+              <!-- 拠点マーカー -->
+              <circle cx="270" cy="272" r="5" fill="#D4A053" />
+              <text x="270" y="268" text-anchor="middle" font-size="9" fill="#D4A053" font-weight="700" font-family="'Noto Sans JP', sans-serif">📍 拠点</text>
+
+              <!-- 西脇市 -->
+              <ellipse cx="305" cy="125" rx="45" ry="22" fill="#7EC8C8" opacity="0.85" />
+              <text x="305" y="131" text-anchor="middle" font-size="15" fill="#4E2E1A" font-weight="600" font-family="'Noto Sans JP', sans-serif">西脇市</text>
+
+              <!-- 加東市 -->
+              <ellipse cx="375" cy="240" rx="45" ry="22" fill="#7EC8C8" opacity="0.85" />
+              <text x="375" y="246" text-anchor="middle" font-size="15" fill="#4E2E1A" font-weight="600" font-family="'Noto Sans JP', sans-serif">加東市</text>
+
+              <!-- 加西市 -->
+              <ellipse cx="135" cy="260" rx="45" ry="22" fill="#7EC8C8" opacity="0.85" />
+              <text x="135" y="266" text-anchor="middle" font-size="15" fill="#4E2E1A" font-weight="600" font-family="'Noto Sans JP', sans-serif">加西市</text>
+
+              <!-- 三木市 -->
+              <ellipse cx="385" cy="415" rx="45" ry="22" fill="#7EC8C8" opacity="0.85" />
+              <text x="385" y="421" text-anchor="middle" font-size="15" fill="#4E2E1A" font-weight="600" font-family="'Noto Sans JP', sans-serif">三木市</text>
+
+              <!-- 加古川市 -->
+              <ellipse cx="145" cy="430" rx="52" ry="22" fill="#7EC8C8" opacity="0.85" />
+              <text x="145" y="436" text-anchor="middle" font-size="15" fill="#4E2E1A" font-weight="600" font-family="'Noto Sans JP', sans-serif">加古川市</text>
+
+              <!-- 稲美町 -->
+              <ellipse cx="250" cy="475" rx="42" ry="22" fill="#7EC8C8" opacity="0.85" />
+              <text x="250" y="481" text-anchor="middle" font-size="15" fill="#4E2E1A" font-weight="600" font-family="'Noto Sans JP', sans-serif">稲美町</text>
+            </svg>
           </div>
           <p class="access__area-note">その他近隣地域の方もお気軽にご相談ください</p>
         </div>
