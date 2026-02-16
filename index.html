@@ -483,35 +483,27 @@
               <!-- 拠点の黒点 -->
               <circle cx="228" cy="320" r="4" fill="#000" />
 
-              <!-- 市町名ラベル（ドラッグ可能） -->
-              <g class="draggable-label" data-name="小野市" style="cursor:grab">
-                <ellipse cx="225" cy="313" rx="16" ry="7" fill="#7EC8C8" opacity="0.85" />
-                <text x="225" y="315.5" text-anchor="middle" font-size="6" fill="#3a2a1a" font-weight="600" font-family="'Noto Sans JP', sans-serif">小野市</text>
-              </g>
-              <g class="draggable-label" data-name="西脇市" style="cursor:grab">
-                <ellipse cx="242" cy="265" rx="16" ry="7" fill="#7EC8C8" opacity="0.85" />
-                <text x="242" y="267.5" text-anchor="middle" font-size="6" fill="#3a2a1a" font-weight="600" font-family="'Noto Sans JP', sans-serif">西脇市</text>
-              </g>
-              <g class="draggable-label" data-name="加東市" style="cursor:grab">
-                <ellipse cx="252" cy="296" rx="16" ry="7" fill="#7EC8C8" opacity="0.85" />
-                <text x="252" y="298.5" text-anchor="middle" font-size="6" fill="#3a2a1a" font-weight="600" font-family="'Noto Sans JP', sans-serif">加東市</text>
-              </g>
-              <g class="draggable-label" data-name="加西市" style="cursor:grab">
-                <ellipse cx="192" cy="292" rx="16" ry="7" fill="#7EC8C8" opacity="0.85" />
-                <text x="192" y="294.5" text-anchor="middle" font-size="6" fill="#3a2a1a" font-weight="600" font-family="'Noto Sans JP', sans-serif">加西市</text>
-              </g>
-              <g class="draggable-label" data-name="三木市" style="cursor:grab">
-                <ellipse cx="252" cy="355" rx="16" ry="7" fill="#7EC8C8" opacity="0.85" />
-                <text x="252" y="357.5" text-anchor="middle" font-size="6" fill="#3a2a1a" font-weight="600" font-family="'Noto Sans JP', sans-serif">三木市</text>
-              </g>
-              <g class="draggable-label" data-name="加古川市" style="cursor:grab">
-                <ellipse cx="195" cy="368" rx="19" ry="7" fill="#7EC8C8" opacity="0.85" />
-                <text x="195" y="370.5" text-anchor="middle" font-size="6" fill="#3a2a1a" font-weight="600" font-family="'Noto Sans JP', sans-serif">加古川市</text>
-              </g>
-              <g class="draggable-label" data-name="稲美町" style="cursor:grab">
-                <ellipse cx="220" cy="373" rx="16" ry="7" fill="#7EC8C8" opacity="0.85" />
-                <text x="220" y="375.5" text-anchor="middle" font-size="6" fill="#3a2a1a" font-weight="600" font-family="'Noto Sans JP', sans-serif">稲美町</text>
-              </g>
+              <!-- 市町名ラベル -->
+              <ellipse cx="228" cy="320" rx="16" ry="7" fill="#7EC8C8" opacity="0.85" />
+              <text x="228" y="322.5" text-anchor="middle" font-size="6" fill="#3a2a1a" font-weight="600" font-family="'Noto Sans JP', sans-serif">小野市</text>
+
+              <ellipse cx="242" cy="268" rx="16" ry="7" fill="#7EC8C8" opacity="0.85" />
+              <text x="242" y="270.5" text-anchor="middle" font-size="6" fill="#3a2a1a" font-weight="600" font-family="'Noto Sans JP', sans-serif">西脇市</text>
+
+              <ellipse cx="251" cy="295" rx="16" ry="7" fill="#7EC8C8" opacity="0.85" />
+              <text x="251" y="297.5" text-anchor="middle" font-size="6" fill="#3a2a1a" font-weight="600" font-family="'Noto Sans JP', sans-serif">加東市</text>
+
+              <ellipse cx="199" cy="294" rx="16" ry="7" fill="#7EC8C8" opacity="0.85" />
+              <text x="199" y="296.5" text-anchor="middle" font-size="6" fill="#3a2a1a" font-weight="600" font-family="'Noto Sans JP', sans-serif">加西市</text>
+
+              <ellipse cx="250" cy="341" rx="16" ry="7" fill="#7EC8C8" opacity="0.85" />
+              <text x="250" y="343.5" text-anchor="middle" font-size="6" fill="#3a2a1a" font-weight="600" font-family="'Noto Sans JP', sans-serif">三木市</text>
+
+              <ellipse cx="202" cy="342" rx="19" ry="7" fill="#7EC8C8" opacity="0.85" />
+              <text x="202" y="344.5" text-anchor="middle" font-size="6" fill="#3a2a1a" font-weight="600" font-family="'Noto Sans JP', sans-serif">加古川市</text>
+
+              <ellipse cx="223" cy="360" rx="16" ry="7" fill="#7EC8C8" opacity="0.85" />
+              <text x="223" y="362.5" text-anchor="middle" font-size="6" fill="#3a2a1a" font-weight="600" font-family="'Noto Sans JP', sans-serif">稲美町</text>
             </svg>
           </div>
           <p class="access__area-note">その他近隣地域の方もお気軽にご相談ください</p>
@@ -617,85 +609,5 @@
 
   <script src="js/main.js"></script>
 
-  <!-- ラベル位置調整ツール（編集後に削除） -->
-  <div id="label-editor" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:#333;color:#fff;padding:16px 20px;border-radius:12px;font-family:sans-serif;font-size:14px;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
-    <p style="margin:0 0 8px;font-weight:bold;">ラベル位置編集モード</p>
-    <p style="margin:0 0 12px;font-size:12px;opacity:0.8;">ラベルをドラッグして移動 → 保存ボタンで座標をコピー</p>
-    <button id="save-positions" style="background:#D4A053;color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:14px;font-weight:bold;width:100%;">座標を保存（コピー）</button>
-    <pre id="pos-output" style="margin:8px 0 0;font-size:10px;max-height:150px;overflow:auto;background:#222;padding:8px;border-radius:4px;display:none;"></pre>
-  </div>
-  <script>
-  (function() {
-    const svg = document.querySelector('.access__area-map svg');
-    const labels = svg.querySelectorAll('.draggable-label');
-    let dragging = null, offset = {x:0, y:0};
-
-    function svgPoint(e) {
-      const pt = svg.createSVGPoint();
-      const touch = e.touches ? e.touches[0] : e;
-      pt.x = touch.clientX;
-      pt.y = touch.clientY;
-      return pt.matrixTransform(svg.getScreenCTM().inverse());
-    }
-
-    labels.forEach(g => {
-      g.addEventListener('mousedown', startDrag);
-      g.addEventListener('touchstart', startDrag, {passive:false});
-    });
-
-    function startDrag(e) {
-      e.preventDefault();
-      dragging = this;
-      dragging.style.cursor = 'grabbing';
-      const el = dragging.querySelector('ellipse');
-      const p = svgPoint(e);
-      offset.x = p.x - parseFloat(el.getAttribute('cx'));
-      offset.y = p.y - parseFloat(el.getAttribute('cy'));
-    }
-
-    function onMove(e) {
-      if (!dragging) return;
-      e.preventDefault();
-      const p = svgPoint(e);
-      const nx = p.x - offset.x;
-      const ny = p.y - offset.y;
-      const el = dragging.querySelector('ellipse');
-      const tx = dragging.querySelector('text');
-      el.setAttribute('cx', nx);
-      el.setAttribute('cy', ny);
-      tx.setAttribute('x', nx);
-      tx.setAttribute('y', ny + 2.5);
-    }
-
-    function endDrag() {
-      if (dragging) dragging.style.cursor = 'grab';
-      dragging = null;
-    }
-
-    svg.addEventListener('mousemove', onMove);
-    svg.addEventListener('mouseup', endDrag);
-    svg.addEventListener('mouseleave', endDrag);
-    svg.addEventListener('touchmove', onMove, {passive:false});
-    svg.addEventListener('touchend', endDrag);
-
-    document.getElementById('save-positions').addEventListener('click', function() {
-      let result = {};
-      labels.forEach(g => {
-        const name = g.getAttribute('data-name');
-        const el = g.querySelector('ellipse');
-        result[name] = {
-          cx: Math.round(parseFloat(el.getAttribute('cx'))),
-          cy: Math.round(parseFloat(el.getAttribute('cy')))
-        };
-      });
-      const text = JSON.stringify(result, null, 2);
-      navigator.clipboard.writeText(text).then(() => {
-        const out = document.getElementById('pos-output');
-        out.style.display = 'block';
-        out.textContent = '✅ コピーしました!\n' + text;
-      });
-    });
-  })();
-  </script>
 </body>
 </html>
