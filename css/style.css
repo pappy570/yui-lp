@@ -4,13 +4,13 @@
 
 /* --- CSS Variables --- */
 :root {
-  --color-primary: #5BAB8C;
-  --color-primary-light: #72BFA0;
-  --color-primary-dark: #468C72;
-  --color-primary-deeper: #2E6B53;
-  --color-accent: #F2C94C;
-  --color-accent-light: #F5D87A;
-  --color-accent-dark: #D4A82D;
+  --color-primary: #5BA4D9;
+  --color-primary-light: #7ABDE8;
+  --color-primary-dark: #3D87C0;
+  --color-primary-deeper: #2A6A9E;
+  --color-accent: #F0A07A;
+  --color-accent-light: #F5BB9E;
+  --color-accent-dark: #D97B52;
   --color-white: #ffffff;
   --color-off-white: #f8f9fa;
   --color-gray-100: #f1f3f5;
@@ -321,7 +321,7 @@ select {
 .hero__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #2E6B53 0%, #468C72 30%, #5BAB8C 60%, #72BFA0 100%);
+  background: linear-gradient(135deg, #2A6A9E 0%, #3D87C0 30%, #5BA4D9 60%, #7ABDE8 100%);
   z-index: 0;
 }
 
@@ -858,7 +858,7 @@ select {
 
 .staff__card-img {
   aspect-ratio: 1;
-  background: linear-gradient(135deg, rgba(91, 171, 140, 0.08), rgba(114, 191, 160, 0.15));
+  background: linear-gradient(135deg, rgba(91, 164, 217, 0.08), rgba(122, 189, 232, 0.15));
   display: flex;
   align-items: center;
   justify-content: center;
