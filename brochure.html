@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>三つ折りパンフレット - 子どもとおとなの訪問看護ステーション結</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #5BA4D9;
+      --primary-light: #7ABDE8;
+      --primary-dark: #3D87C0;
+      --primary-deeper: #2A6A9E;
+      --accent: #F0A07A;
+      --accent-dark: #D97B52;
+      --text: #2d2d2d;
+      --text-light: #666;
+      --bg-light: #f9f7f5;
+      --white: #fff;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    @page {
+      size: 297mm 210mm landscape;
+      margin: 0;
+    }
+
+    .page {
+      width: 297mm;
+      height: 210mm;
+      display: flex;
+      page-break-after: always;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .panel {
+      width: 99mm;
+      height: 210mm;
+      padding: 8mm;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ===========================
+       PAGE 1 - OUTSIDE
+       Left=inside flap, Center=back, Right=front cover
+    =========================== */
+
+    /* FRONT COVER (right panel) */
+    .front-cover {
+      background: linear-gradient(135deg, var(--primary-deeper) 0%, var(--primary-dark) 40%, var(--primary) 70%, var(--primary-light) 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10mm;
+    }
+
+    .front-cover .logo-mark {
+      width: 28mm;
+      height: 28mm;
+      border: 2.5px solid rgba(255,255,255,0.6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18mm;
+      font-weight: 900;
+      margin-bottom: 5mm;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .front-cover .station-name {
+      font-size: 5mm;
+      font-weight: 500;
+      letter-spacing: 0.5mm;
+      margin-bottom: 2mm;
+      opacity: 0.9;
+    }
+
+    .front-cover .station-title {
+      font-size: 4mm;
+      font-weight: 300;
+      letter-spacing: 0.3mm;
+      margin-bottom: 8mm;
+      opacity: 0.85;
+    }
+
+    .front-cover .divider-line {
+      width: 20mm;
+      height: 0.3mm;
+      background: rgba(255,255,255,0.5);
+      margin-bottom: 8mm;
+    }
+
+    .front-cover .tagline {
+      font-size: 6.5mm;
+      font-weight: 700;
+      line-height: 1.6;
+      margin-bottom: 6mm;
+    }
+
+    .front-cover .sub-tagline {
+      font-size: 3mm;
+      line-height: 1.8;
+      opacity: 0.85;
+      font-weight: 300;
+      margin-bottom: 8mm;
+    }
+
+    .front-cover .badge-24 {
+      background: var(--accent);
+      color: white;
+      padding: 2mm 6mm;
+      border-radius: 20px;
+      font-size: 3.5mm;
+      font-weight: 700;
+      letter-spacing: 0.3mm;
+    }
+
+    .front-cover .bottom-info {
+      position: absolute;
+      bottom: 6mm;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 2.5mm;
+      opacity: 0.7;
+      line-height: 1.6;
+    }
+
+    /* BACK COVER (center panel) */
+    .back-cover {
+      background: var(--bg-light);
+      display: flex;
+      flex-direction: column;
+      padding: 8mm 7mm;
+    }
+
+    .back-cover .section-label {
+      font-size: 2.5mm;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.5mm;
+      text-transform: uppercase;
+      margin-bottom: 1.5mm;
+    }
+
+    .back-cover .section-title {
+      font-size: 5mm;
+      font-weight: 700;
+      color: var(--primary-deeper);
+      margin-bottom: 4mm;
+      padding-bottom: 2mm;
+      border-bottom: 0.3mm solid var(--primary-light);
+    }
+
+    .back-cover .info-row {
+      display: flex;
+      margin-bottom: 2.5mm;
+      align-items: flex-start;
+    }
+
+    .back-cover .info-label {
+      font-size: 2.8mm;
+      font-weight: 700;
+      color: var(--primary-dark);
+      width: 18mm;
+      flex-shrink: 0;
+    }
+
+    .back-cover .info-value {
+      font-size: 2.8mm;
+      line-height: 1.5;
+    }
+
+    .back-cover .info-value a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .back-cover .phone-highlight {
+      font-size: 5.5mm;
+      font-weight: 700;
+      color: var(--primary-deeper);
+      margin: 3mm 0;
+      text-align: center;
+      letter-spacing: 0.3mm;
+    }
+
+    .back-cover .area-section {
+      margin-top: 4mm;
+      flex: 1;
+    }
+
+    .back-cover .area-cities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5mm;
+      margin-top: 2mm;
+    }
+
+    .back-cover .area-city {
+      background: var(--primary);
+      color: white;
+      padding: 1mm 3mm;
+      border-radius: 2mm;
+      font-size: 2.8mm;
+      font-weight: 500;
+    }
+
+    .back-cover .area-note {
+      font-size: 2.3mm;
+      color: var(--text-light);
+      margin-top: 2mm;
+      line-height: 1.5;
+    }
+
+    .back-cover .qr-area {
+      margin-top: auto;
+      text-align: center;
+      padding-top: 3mm;
+      border-top: 0.2mm solid #ddd;
+    }
+
+    .back-cover .qr-text {
+      font-size: 2.3mm;
+      color: var(--text-light);
+      margin-top: 1mm;
+    }
+
+    /* INSIDE FLAP (left panel) */
+    .inside-flap {
+      background: white;
+      display: flex;
+      flex-direction: column;
+      padding: 8mm 7mm;
+    }
+
+    .inside-flap .section-label {
+      font-size: 2.5mm;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.5mm;
+      text-transform: uppercase;
+      margin-bottom: 1.5mm;
+    }
+
+    .inside-flap .section-title {
+      font-size: 5mm;
+      font-weight: 700;
+      color: var(--primary-deeper);
+      margin-bottom: 3mm;
+      padding-bottom: 2mm;
+      border-bottom: 0.3mm solid var(--primary-light);
+    }
+
+    .inside-flap .flow-step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 3mm;
+    }
+
+    .inside-flap .flow-number {
+      width: 6mm;
+      height: 6mm;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3mm;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-right: 2.5mm;
+      margin-top: 0.5mm;
+    }
+
+    .inside-flap .flow-content h4 {
+      font-size: 3mm;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5mm;
+    }
+
+    .inside-flap .flow-content p {
+      font-size: 2.3mm;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .inside-flap .cert-section {
+      margin-top: auto;
+      background: rgba(91, 164, 217, 0.06);
+      border-radius: 2mm;
+      padding: 3mm;
+    }
+
+    .inside-flap .cert-title {
+      font-size: 2.8mm;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 2mm;
+    }
+
+    .inside-flap .cert-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1mm;
+    }
+
+    .inside-flap .cert-item {
+      font-size: 2.2mm;
+      color: var(--text-light);
+      background: white;
+      padding: 0.8mm 2mm;
+      border-radius: 1mm;
+      border: 0.2mm solid var(--primary-light);
+    }
+
+
+    /* ===========================
+       PAGE 2 - INSIDE
+       Left=inside-left, Center=inside-center, Right=inside-right
+    =========================== */
+
+    /* INSIDE LEFT - Concept + Mission/Vision */
+    .inside-left {
+      background: white;
+      display: flex;
+      flex-direction: column;
+      padding: 8mm 7mm;
+    }
+
+    .inside-left .concept-symbol {
+      font-size: 14mm;
+      font-weight: 900;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 2mm;
+    }
+
+    .inside-left .concept-catch {
+      font-size: 4mm;
+      font-weight: 700;
+      text-align: center;
+      color: var(--primary-deeper);
+      margin-bottom: 3mm;
+    }
+
+    .inside-left .concept-text {
+      font-size: 2.5mm;
+      line-height: 1.8;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 5mm;
+      padding-bottom: 4mm;
+      border-bottom: 0.2mm solid #eee;
+    }
+
+    .inside-left .mvv-block {
+      margin-bottom: 3.5mm;
+    }
+
+    .inside-left .mvv-label {
+      font-size: 2.3mm;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.3mm;
+      margin-bottom: 1mm;
+    }
+
+    .inside-left .mvv-title {
+      font-size: 3.5mm;
+      font-weight: 700;
+      color: var(--primary-deeper);
+      margin-bottom: 1mm;
+    }
+
+    .inside-left .mvv-text {
+      font-size: 2.3mm;
+      line-height: 1.6;
+      color: var(--text-light);
+    }
+
+    /* INSIDE CENTER - Services */
+    .inside-center {
+      background: linear-gradient(180deg, rgba(91,164,217,0.04) 0%, rgba(91,164,217,0.08) 100%);
+      display: flex;
+      flex-direction: column;
+      padding: 8mm 7mm;
+    }
+
+    .inside-center .section-label {
+      font-size: 2.5mm;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.5mm;
+      text-transform: uppercase;
+      margin-bottom: 1.5mm;
+    }
+
+    .inside-center .section-title {
+      font-size: 5mm;
+      font-weight: 700;
+      color: var(--primary-deeper);
+      margin-bottom: 1.5mm;
+    }
+
+    .inside-center .section-desc {
+      font-size: 2.3mm;
+      color: var(--text-light);
+      margin-bottom: 3mm;
+    }
+
+    .inside-center .staff-badge {
+      background: var(--accent);
+      color: white;
+      text-align: center;
+      padding: 1.2mm 3mm;
+      border-radius: 2mm;
+      font-size: 2.5mm;
+      font-weight: 600;
+      margin-bottom: 3mm;
+    }
+
+    .inside-center .service-category {
+      font-size: 3mm;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 2mm;
+      padding-bottom: 1mm;
+      border-bottom: 0.2mm solid var(--primary-light);
+    }
+
+    .inside-center .service-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2mm;
+    }
+
+    .inside-center .service-num {
+      font-size: 2.5mm;
+      font-weight: 700;
+      color: var(--primary);
+      margin-right: 1.5mm;
+      flex-shrink: 0;
+      margin-top: 0.2mm;
+    }
+
+    .inside-center .service-info h4 {
+      font-size: 2.8mm;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3mm;
+    }
+
+    .inside-center .service-info p {
+      font-size: 2mm;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+
+    .inside-center .services-gap {
+      height: 3mm;
+    }
+
+    /* INSIDE RIGHT - Values */
+    .inside-right {
+      background: white;
+      display: flex;
+      flex-direction: column;
+      padding: 8mm 7mm;
+    }
+
+    .inside-right .section-label {
+      font-size: 2.5mm;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.5mm;
+      text-transform: uppercase;
+      margin-bottom: 1.5mm;
+    }
+
+    .inside-right .section-title {
+      font-size: 5mm;
+      font-weight: 700;
+      color: var(--primary-deeper);
+      margin-bottom: 3mm;
+      padding-bottom: 2mm;
+      border-bottom: 0.3mm solid var(--primary-light);
+    }
+
+    .inside-right .value-card {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 3.5mm;
+      padding-bottom: 3mm;
+      border-bottom: 0.15mm solid #eee;
+    }
+
+    .inside-right .value-card:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .inside-right .value-icon {
+      width: 8mm;
+      height: 8mm;
+      border-radius: 50%;
+      background: rgba(91,164,217,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-right: 2.5mm;
+      color: var(--primary);
+    }
+
+    .inside-right .value-icon svg {
+      width: 4mm;
+      height: 4mm;
+    }
+
+    .inside-right .value-title {
+      font-size: 3.2mm;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5mm;
+    }
+
+    .inside-right .value-text {
+      font-size: 2.3mm;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .inside-right .bottom-message {
+      margin-top: auto;
+      background: linear-gradient(135deg, var(--primary-deeper), var(--primary));
+      color: white;
+      border-radius: 3mm;
+      padding: 4mm;
+      text-align: center;
+    }
+
+    .inside-right .bottom-message p {
+      font-size: 3mm;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .inside-right .bottom-message .phone {
+      font-size: 4.5mm;
+      font-weight: 700;
+      margin-top: 2mm;
+      letter-spacing: 0.3mm;
+    }
+
+    @media print {
+      body { margin: 0; }
+      .page { page-break-after: always; }
+      .page:last-child { page-break-after: avoid; }
+    }
+
+    /* Screen preview styles */
+    @media screen {
+      body {
+        background: #888;
+        padding: 10mm;
+      }
+      .page {
+        margin: 5mm auto;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ PAGE 1: OUTSIDE ============ -->
+  <div class="page">
+
+    <!-- Left panel: Inside flap (ご利用の流れ) -->
+    <div class="panel inside-flap">
+      <span class="section-label">Flow</span>
+      <h2 class="section-title">ご利用の流れ</h2>
+
+      <div class="flow-step">
+        <div class="flow-number">1</div>
+        <div class="flow-content">
+          <h4>お問い合わせ・ご相談</h4>
+          <p>お電話またはフォームより<br>お気軽にご連絡ください。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-number">2</div>
+        <div class="flow-content">
+          <h4>主治医への相談・指示書発行</h4>
+          <p>訪問看護指示書の取得を<br>サポートいたします。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-number">3</div>
+        <div class="flow-content">
+          <h4>初回訪問・アセスメント</h4>
+          <p>ご自宅に伺い、状況を把握し<br>看護計画を作成します。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-number">4</div>
+        <div class="flow-content">
+          <h4>契約・サービス開始</h4>
+          <p>看護計画にご同意後、<br>サービスを開始します。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-number">5</div>
+        <div class="flow-content">
+          <h4>定期訪問・計画の見直し</h4>
+          <p>状態に応じてケアを継続。<br>多職種と連携して支援します。</p>
+        </div>
+      </div>
+
+      <div class="cert-section">
+        <div class="cert-title">指定医療届出済み</div>
+        <div class="cert-list">
+          <span class="cert-item">小児慢性特定疾患</span>
+          <span class="cert-item">特定疾患（難病）</span>
+          <span class="cert-item">自立支援医療</span>
+          <span class="cert-item">精神科訪問看護</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center panel: Back cover (アクセス・連絡先) -->
+    <div class="panel back-cover">
+      <span class="section-label">Access / Contact</span>
+      <h2 class="section-title">アクセス・お問い合わせ</h2>
+
+      <div class="phone-highlight">TEL 0794-73-9728</div>
+
+      <div class="info-row">
+        <span class="info-label">事業所名</span>
+        <span class="info-value">子どもとおとなの<br>訪問看護ステーション結</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">所在地</span>
+        <span class="info-value">〒675-1379<br>兵庫県小野市上本町176-7</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">FAX</span>
+        <span class="info-value">050-3737-5758</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">メール</span>
+        <span class="info-value">houkanyui2022@gmail.com</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">対応時間</span>
+        <span class="info-value">365日 24時間対応</span>
+      </div>
+
+      <div class="area-section">
+        <span class="section-label">Service Area</span>
+        <h3 style="font-size: 3.5mm; font-weight: 700; color: var(--primary-deeper); margin-bottom: 2mm;">対応エリア</h3>
+        <div class="area-cities">
+          <span class="area-city">小野市</span>
+          <span class="area-city">西脇市</span>
+          <span class="area-city">加東市</span>
+          <span class="area-city">加西市</span>
+          <span class="area-city">三木市</span>
+          <span class="area-city">加古川市</span>
+          <span class="area-city">稲美町</span>
+        </div>
+        <p class="area-note">※ 訪問可能エリアは、おおよそ車で片道30分圏内となります。上記以外の地域の方もお気軽にご相談ください。</p>
+      </div>
+
+      <div class="qr-area">
+        <p class="qr-text">Webサイトはこちら ▶ pappy570.github.io/yui-lp/</p>
+      </div>
+    </div>
+
+    <!-- Right panel: Front cover -->
+    <div class="panel front-cover">
+      <div class="logo-mark">結</div>
+      <div class="station-name">子どもとおとなの訪問看護ステーション</div>
+      <div class="station-title">VISITING NURSING STATION YUI</div>
+      <div class="divider-line"></div>
+      <div class="tagline">想いをむすぶ。<br>暮らしに寄り添う。</div>
+      <div class="sub-tagline">
+        赤ちゃんから高齢者まで——<br>
+        看護師・理学療法士・言語聴覚士・助産師が<br>
+        ご自宅を訪問し、安心な毎日をお届けします。
+      </div>
+      <div class="badge-24">365日 24時間対応</div>
+      <div class="bottom-info">
+        〒675-1379 兵庫県小野市上本町176-7<br>
+        TEL 0794-73-9728
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ PAGE 2: INSIDE ============ -->
+  <div class="page">
+
+    <!-- Left panel: Concept + MVV -->
+    <div class="panel inside-left">
+      <div class="concept-symbol">結</div>
+      <div class="concept-catch">想いを"むすぶ"、暮らしに寄りそう。</div>
+      <div class="concept-text">
+        私たちは、"結（ゆい）"＝つながりを大切にし、<br>
+        これまでの生活史に寄り添いながら、<br>
+        利用者やその家族の「想い」や「こうなりたい」<br>
+        という願いを、支援の中で静かにむすび育てていきます。
+      </div>
+
+      <div class="mvv-block">
+        <div class="mvv-label">Mission｜使命</div>
+        <div class="mvv-title">命のはじまりから最期まで</div>
+        <div class="mvv-text">赤ちゃんから高齢者まで、一人ひとりの「こうなりたい」という想いに寄り添い、本人とその家族が"自分らしく歩む力"を信じて支え続けます。</div>
+      </div>
+
+      <div class="mvv-block">
+        <div class="mvv-label">Vision｜目指す未来</div>
+        <div class="mvv-title">自分らしく生きられる地域を</div>
+        <div class="mvv-text">専門職が学び合い、高め合うチームでありながら、利用者やその家族の暮らしに寄り添い、想いを結び、「自分らしく生きられる地域」を育てていきます。</div>
+      </div>
+    </div>
+
+    <!-- Center panel: Services -->
+    <div class="panel inside-center">
+      <span class="section-label">Services</span>
+      <h2 class="section-title">サービス紹介</h2>
+      <p class="section-desc">医療保険・介護保険が適応の方に対して、専門スタッフがご自宅を訪問します。</p>
+
+      <div class="staff-badge">看護師・理学療法士・言語聴覚士・助産師</div>
+
+      <div class="service-category">子ども向けサービス</div>
+
+      <div class="service-item">
+        <span class="service-num">01</span>
+        <div class="service-info">
+          <h4>小児訪問看護</h4>
+          <p>NICU退院後のお子さまへの看護ケア。0歳から対応。</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <span class="service-num">02</span>
+        <div class="service-info">
+          <h4>医療的ケア</h4>
+          <p>人工呼吸器管理、経管栄養、吸引など在宅生活を支援。</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <span class="service-num">03</span>
+        <div class="service-info">
+          <h4>発達支援</h4>
+          <p>言語聴覚士・理学療法士と共にお子さまの成長をサポート。</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <span class="service-num">04</span>
+        <div class="service-info">
+          <h4>家族支援</h4>
+          <p>助産師を含むスタッフがご家族全体の生活をサポート。</p>
+        </div>
+      </div>
+
+      <div class="services-gap"></div>
+
+      <div class="service-category">おとな向けサービス</div>
+
+      <div class="service-item">
+        <span class="service-num">01</span>
+        <div class="service-info">
+          <h4>日常生活のケア</h4>
+          <p>健康状態の観察や療養上のお世話を行います。</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <span class="service-num">02</span>
+        <div class="service-info">
+          <h4>医療処置・点滴管理</h4>
+          <p>褥瘡ケア、カテーテル管理など医療処置を行います。</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <span class="service-num">03</span>
+        <div class="service-info">
+          <h4>リハビリテーション</h4>
+          <p>専門的なリハビリで日常生活動作の維持・改善を目指します。</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <span class="service-num">04</span>
+        <div class="service-info">
+          <h4>ターミナルケア・精神科訪問看護</h4>
+          <p>緩和ケアや精神疾患をお持ちの方の生活安定をサポート。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right panel: Values + CTA -->
+    <div class="panel inside-right">
+      <span class="section-label">Value</span>
+      <h2 class="section-title">5つの価値観</h2>
+
+      <div class="value-card">
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="value-title">安心と安全</div>
+          <div class="value-text">日々、知識と技術の向上を図り<br>安心安全の看護を届ける</div>
+        </div>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <div>
+          <div class="value-title">信頼</div>
+          <div class="value-text">本人や家族の「こうなりたい」<br>という想いを信じて関わる</div>
+        </div>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div>
+          <div class="value-title">連携</div>
+          <div class="value-text">医療・介護・地域と手を取り合い<br>支援の輪をむすぶ</div>
+        </div>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div>
+          <div class="value-title">クリエイティブ</div>
+          <div class="value-text">枠にとらわれず、その人に合った<br>支援を創造する</div>
+        </div>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div>
+          <div class="value-title">貢献</div>
+          <div class="value-text">信頼感を欠かさず、任せて頂ける<br>存在として価値を提供し続ける</div>
+        </div>
+      </div>
+
+      <div class="bottom-message">
+        <p>お気軽にご相談ください</p>
+        <div class="phone">TEL 0794-73-9728</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
