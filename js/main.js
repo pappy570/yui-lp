@@ -156,25 +156,45 @@ function initFAQ() {
   });
 }
 
-/* --- Contact form (frontend only) --- */
+/* --- Contact form (Formspree) --- */
 function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  const btn = form.querySelector('[type="submit"]');
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
 
-    // Validate required fields
     if (!data.name || !data.email || !data.message) {
       alert('必須項目をご入力ください。');
       return;
     }
 
-    // Show success message
-    alert('お問い合わせありがとうございます。\n内容を確認の上、担当者よりご連絡いたします。');
-    form.reset();
+    btn.disabled = true;
+    btn.textContent = '送信中...';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.innerHTML = '<p style="text-align:center;padding:2rem;font-size:1.1rem;color:#2A6A9E;">お問い合わせありがとうございます。<br>内容を確認のうえ、担当者よりご連絡いたします。</p>';
+      } else {
+        alert('送信に失敗しました。お電話またはメールにてお問い合わせください。');
+        btn.disabled = false;
+        btn.textContent = '送信する';
+      }
+    } catch {
+      alert('送信に失敗しました。お電話またはメールにてお問い合わせください。');
+      btn.disabled = false;
+      btn.textContent = '送信する';
+    }
   });
 }
